@@ -278,6 +278,7 @@ game.setDialogCursor(img`
 game.setDialogTextColor(9)
 effects.clouds.startScreenEffect()
 game.splash("湊のシューティングゲーム", "Aボタンでスタート")
+game.showLongText("記録：湊・１１３点、ママ・７３点", DialogLayout.Full)
 if (game.ask("A.赤色", "B.青色")) {
     発射体 = sprites.create(img`
         . . . . . . . c d . . . . . . . 
