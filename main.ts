@@ -30,6 +30,13 @@ scene.onOverlapTile(SpriteKind.Food3, assets.tile`myTile4`, function (sprite, lo
 scene.onOverlapTile(SpriteKind.Food2, assets.tile`myTile4`, function (sprite, location) {
     sprites.destroy(sprite, effects.ashes, 500)
 })
+info.onCountdownEnd(function () {
+    game.gameOver(true)
+    game.setGameOverEffect(true, effects.confetti)
+    game.setGameOverPlayable(true, music.melodyPlayable(music.powerUp), false)
+    game.setGameOverMessage(true, "GAME OVER!")
+    game.setGameOverScoringType(game.ScoringType.HighScore)
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food2, function (sprite, otherSprite) {
     sprites.destroy(otherSprite, effects.halo, 500)
     info.changeScoreBy(-3)
@@ -46,13 +53,6 @@ scene.onOverlapTile(SpriteKind.Food, assets.tile`myTile3`, function (sprite, loc
 })
 scene.onOverlapTile(SpriteKind.Food3, assets.tile`myTile3`, function (sprite, location) {
     sprites.destroy(sprite, effects.ashes, 500)
-})
-info.onLifeZero(function () {
-    game.gameOver(true)
-    game.setGameOverEffect(true, effects.confetti)
-    game.setGameOverPlayable(true, music.melodyPlayable(music.powerUp), false)
-    game.setGameOverMessage(true, "GAME OVER!")
-    game.setGameOverScoringType(game.ScoringType.HighScore)
 })
 scene.onOverlapTile(SpriteKind.Food2, assets.tile`myTile3`, function (sprite, location) {
     sprites.destroy(sprite, effects.ashes, 500)
